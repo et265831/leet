@@ -101,6 +101,25 @@ class LongestCommonPrefix:
             else:
                 break
         return prefix
+class ValidParen:
+    def isValid(self, s):
+        parenthesis = {
+            '(':')',
+            '[':']',
+            '{':'}'
+        }
+        stack = []
+        for char in s:
+            if char in list(parenthesis.keys()):
+                stack.append(char)
+            elif char in list(parenthesis.values()):
+                if len(stack)==0 or parenthesis[stack.pop()] != char:
+                    return False
+            else:
+                pass
+        return len(stack)==0
+
+
 
 
 
